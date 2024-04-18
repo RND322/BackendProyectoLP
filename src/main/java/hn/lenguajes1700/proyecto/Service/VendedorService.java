@@ -10,5 +10,6 @@ public interface VendedorService {
     public Vendedor autenticarVendedor(String correoelectronico, String contrasena);
     public Vendedor obtenerVendedorPorId(int idvendedor);
     public List<Vendedor> obtenerTodosLosVendedors();
+    public void eliminarVendedor(int idvendedor);
    
 }

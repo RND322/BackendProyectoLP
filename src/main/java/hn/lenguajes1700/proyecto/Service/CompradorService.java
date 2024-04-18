@@ -10,4 +10,6 @@ public interface CompradorService {
     public Comprador autenticarComprador(String correoelectronico, String contrasena);
     public Comprador obtenerCompradorPorId(int idcomprador);
     public List<Comprador> obtenerTodosLosCompradores();
+    public void eliminarComprador(int idcomprador);
 }
+

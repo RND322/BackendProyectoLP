@@ -42,4 +42,13 @@ public class VendedorServiceImpl implements VendedorService {
     public List<Vendedor> obtenerTodosLosVendedors() {
         return (List<Vendedor>) vendedorRepository.findAll();
     }
+
+    @Override
+    public void eliminarVendedor(int idvendedor) {
+       if(vendedorRepository.existsById(idvendedor)){
+          vendedorRepository.deleteById(idvendedor);
+       } else {
+          throw new RuntimeException("El vendedor no existe.");
+       }
+    }
 }

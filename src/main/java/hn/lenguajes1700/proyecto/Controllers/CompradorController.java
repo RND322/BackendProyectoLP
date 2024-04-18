@@ -3,6 +3,7 @@ package hn.lenguajes1700.proyecto.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,4 +41,10 @@ public class CompradorController {
     public Comprador autenticarComprador(@RequestParam String correo, @RequestParam String contrasena) {
         return compradorServiceImpl.autenticarComprador(correo, contrasena);
     }
+
+    @DeleteMapping("/eliminar/{idcliente}")
+    public void eliminarComprador(@PathVariable int idcomprador) {
+        compradorServiceImpl.eliminarComprador(idcomprador);
+    }
+     
 }

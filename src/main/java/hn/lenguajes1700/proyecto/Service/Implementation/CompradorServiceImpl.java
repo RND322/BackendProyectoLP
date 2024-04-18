@@ -43,4 +43,14 @@ public class CompradorServiceImpl implements CompradorService {
     public List<Comprador> obtenerTodosLosCompradores() {
         return (List<Comprador>) compradorRepository.findAll();
     }
+
+
+    @Override
+    public void eliminarComprador(int idcomprador) {
+       if(compradorRepository.existsById(idcomprador)){
+          compradorRepository.deleteById(idcomprador);
+       } else {
+          throw new RuntimeException("El cliente no existe.");
+       }
+    }
 }
