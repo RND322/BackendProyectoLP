@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hn.lenguajes1700.proyectofinal.Entities.Comprador;
 import hn.lenguajes1700.proyectofinal.Entities.DireccionComprador;
+import hn.lenguajes1700.proyectofinal.Repository.CompradorRepository;
 import hn.lenguajes1700.proyectofinal.Service.Impl.DireccionCompradorServiceImpl;
 
 @RestController
@@ -20,11 +22,32 @@ public class DireccionCompradorController {
     @Autowired
     private DireccionCompradorServiceImpl direccionCompradorServiceImpl;
 
-    
+    @Autowired
+    private CompradorRepository compradorRepository;
+
+    /* 
     @PostMapping("/agregar")
     public DireccionComprador agregarDireccion(@RequestBody DireccionComprador direccion) {
         return direccionCompradorServiceImpl.agregarDireccion(direccion);
     }
+*/
+    @PostMapping("/agregar")
+    public DireccionComprador agregarDireccion(@RequestBody DireccionComprador direccion) {
+    // Obtener el ID del comprador desde el objeto de dirección
+    int idComprador = direccion.getComprador().getIdcomprador();
+
+    // Buscar el comprador por su ID
+    Comprador comprador = compradorRepository.findById(idComprador)
+        .orElseThrow(() -> new RuntimeException("No se encontró el comprador con ID: " + idComprador));
+
+    // Asignar el comprador al objeto DireccionComprador
+    direccion.setComprador(comprador);
+
+    // Guardar la dirección en la base de datos
+    return direccionCompradorServiceImpl.agregarDireccion(direccion);
+}
+
+    
 
     @PutMapping("/actualizar/{iddireccion}")
     public DireccionComprador actualizarDireccion(@PathVariable int iddireccion, @RequestBody DireccionComprador direccionactualizada) {

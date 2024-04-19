@@ -17,8 +17,9 @@ public class DireccionCompradorServiceImpl implements DireccionCompradorService 
 
     @Override
     public DireccionComprador agregarDireccion(DireccionComprador direccion) {
-        // Asociar la dirección con un comprador y guardarla en la base de datos
-        return direccionCompradorRepository.save(direccion);
+    // No es necesario realizar ninguna operación adicional aquí, 
+    // ya que el comprador asociado se obtiene directamente desde el objeto DireccionComprador
+    return direccionCompradorRepository.save(direccion);
     }
 
     @Override

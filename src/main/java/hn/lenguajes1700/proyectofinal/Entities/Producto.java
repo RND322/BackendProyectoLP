@@ -27,8 +27,9 @@ public class Producto {
     @JoinColumn(name = "idvendedor")
     private Vendedor vendedor;
 
-    @JsonBackReference
+    
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "idcategoria")
     private Categoria categoria;
 
