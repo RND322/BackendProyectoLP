@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -24,7 +24,7 @@ public class Categoria {
 
     private String nombrecategoria;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("categoria")
+    @OneToMany(mappedBy = "categoria",cascade = CascadeType.ALL)
     private List<Producto> productos;
 }

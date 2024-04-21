@@ -48,9 +48,9 @@ public class ProductoController {
 
     // Guardar el producto en la base de datos
     return productoServiceImpl.guardarProducto(producto);
- }
-
-    @GetMapping("/{idproducto}")
+    }
+ 
+    @GetMapping("obtener/{idproducto}")
     public Producto obtenerProductoPorId(@PathVariable int idproducto) {
         return productoServiceImpl.obtenerProductoPorId(idproducto);
     }

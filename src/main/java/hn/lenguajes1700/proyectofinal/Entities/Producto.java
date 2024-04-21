@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 @Data 
 @Entity
 @Table(name = "productos")
+//@JsonIgnoreProperties({"vendedor"})
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,9 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "idvendedor")
     private Vendedor vendedor;
-
     
+    @JsonIgnoreProperties("productos")
     @ManyToOne
-    @JsonBackReference
     @JoinColumn(name = "idcategoria")
     private Categoria categoria;
 
@@ -43,8 +43,8 @@ public class Producto {
     private String imagen;
 
     private Integer cantidadproducto;
-
-    @ManyToOne
+    
     @JoinColumn(name = "idcarrito")
+    @ManyToOne
     private CarritoCompra carritocompra;
 }

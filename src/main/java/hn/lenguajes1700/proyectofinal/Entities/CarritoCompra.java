@@ -30,7 +30,6 @@ public class CarritoCompra {
     @OneToMany(mappedBy = "carritocompra")
     private List<Producto> producto;
 
-
     private Integer cantidad;
 
     private String estado;
