@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -22,6 +23,7 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcategoria;
 
+    @NotNull
     private String nombrecategoria;
 
     @JsonIgnoreProperties("categoria")

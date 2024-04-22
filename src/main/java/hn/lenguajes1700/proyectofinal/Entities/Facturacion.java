@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
@@ -26,8 +27,10 @@ public class Facturacion {
     @JoinColumn(name = "idcarrito")
     private CarritoCompra carritocompra;
 
+    @NotNull
     private LocalDate fechafacturacion;
 
     @Column(precision = 10, scale = 2)
+    @NotNull
     private BigDecimal total;
 }

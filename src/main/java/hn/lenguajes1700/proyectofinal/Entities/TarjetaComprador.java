@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 
 @Data
@@ -23,10 +24,13 @@ public class TarjetaComprador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idtarjetacomprador;
 
+    @NotNull
     private String numerotarjetacomprador;
 
+    @NotNull
     private LocalDate fechavencimientocomprador;
 
+    @NotNull
     private String codigoseguridadcomprador;
 
     @ManyToOne

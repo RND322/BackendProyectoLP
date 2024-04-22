@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -30,13 +31,16 @@ public class DetalleFactura {
     @JoinColumn(name = "idproducto")
     private Producto producto;
 
+    @NotNull
     private Integer cantidad;
 
     private Integer descuento;
 
     @Column(precision = 10, scale = 2)
+    @NotNull
     private BigDecimal subtotal;
 
+    @NotNull
     private String estadopago;
 
     private LocalDate fechaentrega;

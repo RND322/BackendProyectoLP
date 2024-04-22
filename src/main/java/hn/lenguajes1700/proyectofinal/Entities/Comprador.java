@@ -11,7 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 
@@ -24,14 +24,19 @@ public class Comprador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcomprador;
 
+    @NotNull
     private String nombre;
 
+    @NotNull
     private String apellido;
 
+    @NotNull
     private String telefono;
 
+    @NotNull
     private String correoelectronico;
 
+    @NotNull
     private String contrasena;
 
     @OneToMany(mappedBy = "comprador", cascade = CascadeType.ALL)
