@@ -47,8 +47,8 @@ public class CompradorController {
       schema = @Schema(implementation = Comprador.class)) }),
       @ApiResponse(responseCode = "400", description = "Comprador no autenticado", content = @Content)
     })
-    public Comprador autenticarComprador(@RequestParam String correo, @RequestParam String contrasena) {
-        return compradorServiceImpl.autenticarComprador(correo, contrasena);
+    public Comprador autenticarComprador(@RequestParam String correoelectronico, @RequestParam String contrasena) {
+        return compradorServiceImpl.autenticarComprador(correoelectronico, contrasena);
     }
 
     @GetMapping("obtener/{idcomprador}")
